@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashbord</title>
 
-    <!-- My css -->
-    <link rel="stylesheet" href="css/Style.css">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- My css -->
+    <link rel="stylesheet" href="css/Style.css">
 
 </head>
 
-<body>
+<body ng-app="App" ng-controller="Ctrl">
 
 
     <nav class="navbar">
@@ -40,7 +42,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#!/profile" class="nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path
                             d="M528 32H48C21.5 32 0 53.5 0 80v16h576V80c0-26.5-21.5-48-48-48zM0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V128H0v304zm352-232c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zM176 192c35.3 0 64 28.7 64 64s-28.7 64-64 64s-64-28.7-64-64s28.7-64 64-64zM67.1 396.2C75.5 370.5 99.6 352 128 352h8.2c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h8.2c28.4 0 52.5 18.5 60.9 44.2c3.2 9.9-5.2 19.8-15.6 19.8H82.7c-10.4 0-18.8-10-15.6-19.8z"
@@ -54,15 +56,15 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#!/course" class="nav-link">
 
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        viewBox="0 0 640 512">
-                        <path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91c-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62C.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38c.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z" 
-                        fill="currentColor" class="fa-secondary"/>
-                        <path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91c-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62C.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38c.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z" 
-                        fill="currentColor" class="fa-primary"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path
+                            d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91c-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62C.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38c.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"
+                            fill="currentColor" class="fa-secondary" />
+                        <path
+                            d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91c-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62C.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38c.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"
+                            fill="currentColor" class="fa-primary" />
                     </svg>
 
                     <span class="link-text">Courses</span>
@@ -70,10 +72,8 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" 
-                    height="2.5rem"
-                    viewBox="0 0 384 512">
+                <a href="#!/quiz" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 384 512">
 
                         <path
                             d="M288 248v28c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-28c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm-12 72H108c-6.6 0-12 5.4-12 12v28c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12v-28c0-6.6-5.4-12-12-12zm108-188.1V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V48C0 21.5 21.5 0 48 0h204.1C264.8 0 277 5.1 286 14.1L369.9 98c9 8.9 14.1 21.2 14.1 33.9zm-128-80V128h76.1L256 51.9zM336 464V176H232c-13.3 0-24-10.7-24-24V48H48v416h288z"
@@ -95,7 +95,7 @@
                     <span class="link-text">Quiz</span>
                 </a>
             </li>
-<!-- 
+            <!-- 
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-shuttle" role="img"
@@ -158,107 +158,26 @@
     </nav>
 
     <main>
-        <h1>Hi Dashbord</h1>
-
-        <p>
-            I'm baby kale chips affogato ennui lumbersexual, williamsburg paleo quinoa
-            iceland normcore tumeric. Kitsch coloring book retro, seitan schlitz
-            tattooed biodiesel vexillologist neutra. Synth mumblecore deep v, umami
-            selfies normcore gluten-free snackwave. Seitan ramps drinking vinegar
-            venmo keytar, humblebrag VHS post-ironic tacos godard pour-over.
-        </p>
-        <p>
-            Sartorial kogi taxidermy, kickstarter synth yr irony ennui everyday carry
-            retro helvetica stumptown cloud bread squid echo park. Etsy cloud bread
-            sartorial quinoa tacos beard mumblecore shaman tumblr pop-up. Twee retro
-            fingerstache af helvetica pabst 8-bit leggings taiyaki portland ramps tbh
-            tumblr vinyl. Neutra humblebrag bushwick portland subway tile plaid, offal
-            scenester flexitarian cliche squid small batch palo santo. Palo santo meh
-            adaptogen +1 3 wolf moon, listicle brunch ethical fanny pack everyday
-            carry fam. Offal fingerstache taxidermy, man bun venmo PBR&amp;B helvetica
-            thundercats everyday carry tote bag artisan cray wolf jianbing.
-        </p>
-        <p>
-            Taxidermy thundercats whatever austin. VHS helvetica ethical, dreamcatcher
-            enamel pin YOLO shabby chic locavore man bun crucifix pabst chillwave
-            pop-up vegan. Air plant mlkshk ethical echo park tumeric, whatever
-            crucifix godard scenester locavore pork belly yuccie vape. +1 gochujang
-            put a bird on it, pork belly whatever selfies vaporware occupy banh mi
-            normcore VHS. Cornhole normcore hashtag tilde. Hell of yr try-hard DIY raw
-            denim banjo, enamel pin irony polaroid copper mug tofu. Dreamcatcher lomo
-            literally 90's before they sold out, 3 wolf moon banh mi seitan chambray
-            cliche offal tote bag occupy pug.
-        </p>
-        <p>
-            Post-ironic hot chicken salvia yr yuccie ugh cold-pressed keffiyeh franzen
-            viral taxidermy mustache slow-carb crucifix vape. Taiyaki yuccie hell of
-            tacos PBR&amp;B, kitsch meggings tbh truffaut kickstarter mixtape af kogi.
-            Fingerstache vegan tofu waistcoat gentrify cray. Drinking vinegar 3 wolf
-            moon health goth craft beer master cleanse. Letterpress health goth 8-bit
-            chillwave craft beer brooklyn. Chicharrones master cleanse 8-bit,
-            mumblecore copper mug messenger bag poutine lomo kale chips flannel. Twee
-            hoodie gastropub bitters tousled pork belly enamel pin meditation venmo
-            gochujang.
-        </p>
-        <p>
-            Next level selfies cronut ethical. Tofu tumblr you probably haven't heard
-            of them, man braid literally forage swag chillwave. Pug yr flannel
-            tumeric. Coloring book yr chillwave snackwave, shoreditch shaman gentrify
-            typewriter tumeric DIY copper mug small batch. Scenester waistcoat YOLO
-            hexagon kombucha poke 8-bit meditation. Selvage scenester forage
-            williamsburg. Hoodie fingerstache tacos mustache, hashtag quinoa next
-            level sartorial craft beer retro disrupt lo-fi.
-        </p>
-        <p>
-            YOLO twee keytar farm-to-table flexitarian cardigan polaroid lumbersexual
-            adaptogen drinking vinegar echo park dreamcatcher. Brunch shoreditch
-            dreamcatcher iPhone knausgaard plaid edison bulb letterpress ethical yr
-            fanny pack. Typewriter portland woke glossier cronut, post-ironic migas
-            gentrify letterpress cray brunch lyft 8-bit master cleanse. Pitchfork
-            thundercats organic pour-over unicorn lomo.
-        </p>
-        <p>
-            Ugh yr tacos aesthetic everyday carry, tumeric selvage cliche skateboard.
-            Wolf truffaut enamel pin vexillologist poutine. Hoodie roof party pabst,
-            cardigan letterpress af disrupt +1 subway tile chillwave live-edge
-            meggings next level readymade. Master cleanse gentrify hashtag, stumptown
-            fam single-origin coffee occupy dreamcatcher air plant viral vexillologist
-            enamel pin meggings. Tumblr chambray pickled microdosing austin scenester
-            green juice.
-        </p>
-        <p>
-            Austin four dollar toast church-key, vaporware hoodie edison bulb jean
-            shorts sustainable williamsburg plaid helvetica scenester lomo humblebrag.
-            Meditation tumblr kickstarter ennui williamsburg taiyaki pabst pour-over.
-            8-bit godard cred, chillwave enamel pin skateboard you probably haven't
-            heard of them. Meditation before they sold out single-origin coffee swag
-            try-hard jianbing slow-carb shaman leggings. Palo santo shabby chic
-            whatever man bun. Master cleanse wayfarers single-origin coffee pork belly
-            cronut, normcore cliche jianbing before they sold out tousled shabby chic
-            af pop-up gentrify. Direct trade la croix vexillologist jianbing,
-            flexitarian selvage try-hard stumptown polaroid shaman wayfarers poke
-            ramps food truck swag.
-        </p>
-        <p>
-            Pok pok lumbersexual wayfarers, direct trade leggings poutine truffaut
-            kitsch. Seitan aesthetic master cleanse squid coloring book banh mi YOLO
-            vegan locavore vexillologist readymade next level pop-up edison bulb.
-            Selvage knausgaard literally, quinoa photo booth 3 wolf moon microdosing
-            freegan yuccie. Truffaut gentrify lomo put a bird on it waistcoat. Ugh
-            austin distillery, tbh actually pork belly snackwave artisan mixtape
-            quinoa vexillologist pok pok polaroid listicle readymade.
-        </p>
-        <p>
-            Hammock letterpress prism dreamcatcher truffaut shabby chic vice
-            cold-pressed. Franzen pug fashion axe before they sold out, tumblr irony
-            kogi actually af bushwick banh mi. Snackwave bicycle rights tofu
-            dreamcatcher tote bag pour-over meditation raw denim fanny pack. Pop-up
-            retro taiyaki meditation twee gastropub VHS etsy. Semiotics gochujang
-            street art normcore, edison bulb farm-to-table pour-over taxidermy
-            brooklyn.
-        </p>
+        <!-- injection section -->
+        <section class="container">
+            <ng-view></ng-view>
+        </section>
     </main>
 
+
+
+    <!-- scripts -->
+
+    <!-- angularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- my javascript -->
+    <script src="js/views/view_teacher.js"></script>
+    <script src="js/controller/ctrl_teacher.js"></script>
 </body>
 
 </html>
