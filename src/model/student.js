@@ -47,11 +47,11 @@ const StudentSchema = new mongoose.Schema({
 })
 
 // virtual schema for linking task and users
-// StudentSchema.virtual('course', {
-//     ref: 'Course',
-//     localField: '_id',
-//     foreignField: 'teacher_id'
-// })
+StudentSchema.virtual('quizResult', {
+    ref: 'quizResult',
+    localField: '_id',
+    foreignField: 'student_id'
+})
 
 
 // removing private data from user obj before sending response back to user

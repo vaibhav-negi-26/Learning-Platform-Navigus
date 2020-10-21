@@ -27,7 +27,7 @@ router.post('/teacher/login', async (req, res) => {
         await teacher.save()
         const token = await teacher.generateAuthToken()
         res.send({
-            // teacher,
+            name: teacher.name,
             token
         })
     } catch (error) {

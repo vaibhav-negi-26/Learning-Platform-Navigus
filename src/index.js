@@ -6,6 +6,7 @@ const courseRoute = require('./routes/course_route')
 const quizRoute = require('./routes/quiz_route')
 const questionRoute = require('./routes/question_route')
 const studentRoute = require('./routes/student_route')
+const quizResultRoute = require('./routes/quiz_result_route')
 
 
 const app = express()
@@ -26,6 +27,9 @@ app.use(questionRoute)
 
 // module 2 routes
 app.use(studentRoute)
+app.use(quizResultRoute)
+
+
 // server start
 app.listen(port, () => {
     console.log('Server is up on port ', port)

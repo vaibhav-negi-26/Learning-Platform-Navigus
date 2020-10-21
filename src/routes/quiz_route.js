@@ -3,6 +3,7 @@ const router = new express.Router()
 const Quiz = require('../model/quiz')
 const Question = require('../model/question')
 const auth = require('../middleware/auth')
+const auth_stu = require('../middleware/auth_stu')
 
 // finding all quiz realted to a teacher
 router.get('/quiz/me', auth, async (req, res) => {
@@ -22,7 +23,7 @@ router.get('/quiz/me', auth, async (req, res) => {
 })
 
 // finding all quiz
-router.get('/quiz/all', auth, async (req, res) => {
+router.get('/quiz/all', auth_stu, async (req, res) => {
     try {
         const quiz = await Quiz.find({
             available: "1"
