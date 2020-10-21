@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 require('./db/mongoose')
 const teacherRoute = require('./routes/teacher_route')
+const courseRoute = require('./routes/course_route')
 
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(express.static(pubdir))
 // routes
 app.use(express.json())
 app.use(teacherRoute)
+app.use(courseRoute)
 
 // server start
 app.listen(port, () => {

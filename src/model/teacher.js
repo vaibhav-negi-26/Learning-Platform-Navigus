@@ -46,6 +46,13 @@ const TeacherSchema = new mongoose.Schema({
     }]
 })
 
+// virtual schema for linking task and users
+TeacherSchema.virtual('course', {
+    ref: 'Course',
+    localField: '_id',
+    foreignField: 'teacher_id'
+})
+
 // removing private data from user obj before sending response back to user
 TeacherSchema.methods.toJSON = function () {
     const user = this
