@@ -1,6 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 const Course = require('../model/course')
+const Quiz = require('../model/quiz')
 const auth = require('../middleware/auth')
 
 // Create endpoints 
@@ -11,8 +12,17 @@ router.post('/course/create', auth, async (req, res) => {
     })
     try {
         await course.save()
+        // making quiz of that course
+        const quiz = new Quiz({
+            course_name: course.title,
+            course_id: course._id,
+            teacher_id: req.user._id
+        })
+        await quiz.save()
+
         res.status(201).send({
-            course
+            course,
+            quiz
         })
     } catch (error) {
         res.status(400).send(error)
@@ -36,7 +46,7 @@ router.get('/course/me', auth, async (req, res) => {
     }
 })
 
-// dev route getting all teachers
+// dev route getting all course
 router.get('/course/all', async (req, res) => {
     try {
         const course = await Course.find({}).sort({title: 1})
@@ -76,7 +86,7 @@ router.patch('/course/:id', auth, async (req, res) => {
     }
 })
 
-// deleting task by id
+// deleting course by id
 router.delete('/course/:id', auth, async (req, res) => {
     try {
         const course = await Course.findOneAndDelete({
@@ -90,7 +100,15 @@ router.delete('/course/:id', auth, async (req, res) => {
             })
         }
 
-        res.send(course)
+        const quiz = await Quiz.findOneAndDelete({
+            course_id: course.id,
+            teacher_id: req.user._id
+        })
+
+        res.send({
+            course,
+            quiz
+        })
     } catch (error) {
         res.status(500).send({error})
     }

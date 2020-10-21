@@ -53,6 +53,12 @@ TeacherSchema.virtual('course', {
     foreignField: 'teacher_id'
 })
 
+TeacherSchema.virtual('quiz', {
+    ref: 'quiz',
+    localField: '_id',
+    foreignField: 'teacher_id'
+})
+
 // removing private data from user obj before sending response back to user
 TeacherSchema.methods.toJSON = function () {
     const user = this
