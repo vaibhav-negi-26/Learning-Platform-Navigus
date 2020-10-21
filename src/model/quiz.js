@@ -28,8 +28,13 @@ const quizSchema = new mongoose.Schema({
     }
 })
 
-// 'quiz' is used for refrence in teacher virtual property
+quizSchema.virtual('question', {
+    ref: 'question',
+    localField: '_id',
+    foreignField: 'quiz_id'
+})
 
+// 'quiz' is used for refrence in teacher virtual property
 const Quiz = mongoose.model('quiz', quizSchema)
 
 module.exports = Quiz

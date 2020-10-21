@@ -1,6 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 const Quiz = require('../model/quiz')
+const Question = require('../model/question')
 const auth = require('../middleware/auth')
 
 // finding all quiz realted to a teacher
@@ -23,7 +24,9 @@ router.get('/quiz/me', auth, async (req, res) => {
 // finding all quiz
 router.get('/quiz/all', auth, async (req, res) => {
     try {
-        const quiz = await Quiz.find({}).sort({course_name: 1})
+        const quiz = await Quiz.find({
+            available: "1"
+        }).sort({course_name: 1})
         res.send(quiz)
     } catch (error) {
         res.status(500).send(error)
@@ -62,9 +65,9 @@ router.patch('/quiz/:id', auth, async (req, res) => {
     }
 })
 
-// update course endpoints
+// delete course endpoints
 router.delete('/quiz/:id', auth, async (req, res) => {
-    // course id
+    // quiz id
     const _id = req.params.id
 
     try {
@@ -81,7 +84,9 @@ router.delete('/quiz/:id', auth, async (req, res) => {
         quiz.available = '0'
         await quiz.save()
         // delete all questions
-
+        await Question.deleteMany({
+            quiz_id: _id
+        })
         res.send(quiz)
     } catch (error) {
         res.status(500).send()
