@@ -1,17 +1,17 @@
 const express = require('express')
 const router = new express.Router()
-const Teacher = require('../model/teacher')
-const auth = require('../middleware/auth')
+const Student = require('../model/student')
+const auth = require('../middleware/auth_stu')
 
 // Create endpoints 
-router.post('/teacher/create', async (req, res) => {
+router.post('/student/create', async (req, res) => {
     // console.log(req.body);
-    const teacher = new Teacher(req.body)
+    const student = new Student(req.body)
     try {
-        await teacher.save()
-        const token = await teacher.generateAuthToken()
+        await student.save()
+        const token = await student.generateAuthToken()
         res.status(201).send({
-            teacher,
+            student,
             token
         })
     } catch (error) {
@@ -20,23 +20,25 @@ router.post('/teacher/create', async (req, res) => {
 })
 
 // Login endpoints
-router.post('/teacher/login', async (req, res) => {
+router.post('/student/login', async (req, res) => {
     try {
-        const teacher = await Teacher.findByCredentials(req.body.email, req.body.password)
-        teacher.tokens = []
-        await teacher.save()
-        const token = await teacher.generateAuthToken()
+        const student = await Student.findByCredentials(req.body.email, req.body.password)
+        student.tokens = []
+        await student.save()
+        const token = await student.generateAuthToken()
         res.send({
-            // teacher,
+            // student,
             token
         })
     } catch (error) {
-        res.status(400).send(error)
+        res.status(400).send({
+            error: "Wrong Credentials!"
+        })
     }
 })
 
 // Logout endpoints
-router.post('/teacher/logout', auth, async (req, res) => {
+router.post('/student/logout', auth, async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
             token.token !== req.token
@@ -52,13 +54,13 @@ router.post('/teacher/logout', auth, async (req, res) => {
     }
 })
 
-// Current teacher endpoints
-router.get('/teacher/me', auth, async (req, res) => {
+// Current student endpoints
+router.get('/student/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
-// Update teacher endpoints
-router.patch('/teacher/me', auth, async (req, res) => {
+// Update student endpoints
+router.patch('/student/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ["name", "email","contact", "password","college"]
     const isValid = updates.every((update) => allowedUpdates.includes(update))
@@ -74,16 +76,6 @@ router.patch('/teacher/me', auth, async (req, res) => {
         res.send(req.user)
     } catch (error) {
         res.status(500).send()
-    }
-})
-
-// dev route getting all teachers
-router.get('/teacher/all', async (req, res) => {
-    try {
-        const teacher = await Teacher.find({})
-        res.send(teacher)
-    } catch (error) {
-        res.status(500).send();
     }
 })
 
