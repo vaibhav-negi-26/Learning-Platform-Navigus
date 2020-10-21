@@ -5,7 +5,7 @@ const teacherRoute = require('./routes/teacher_route')
 
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 
 // serving public folder
 const pubdir = path.join(__dirname, '../public')
