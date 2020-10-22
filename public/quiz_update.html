@@ -18,6 +18,140 @@
 
 <body>
 
+    <header>
+        <div class="row">
+            <h3>
+                Quiz Update Section
+            </h3>
+            <blockquote>
+                <p>Update and Add your quiz.</p>
+            </blockquote>
+            <div class="right-align">
+                <a id="add_question" class="waves-effect waves-light btn blue darken-4">Submit Quiz</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- part 1 start-->
+            <div class="z-depth-1 quiz_form">
+                <div class="row">
+                    <form class="col s12">
+                        <!-- fields -->
+                        <div class="input-field col s12 m10">
+                            <input id="quiz_name" type="text" class="validate">
+                            <label for="quiz_name">Quiz name</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Quiz name</span>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <input id="max_score" type="number" class="validate">
+                            <label for="max_score">Max Score</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Max Score</span>
+                        </div>
+
+                        <!-- buttons -->
+
+                        <div class="input-field col s6 m6 left-align">
+                            <a id="update" class="waves-effect waves-light btn orange accent-4">Update</a>
+                        </div>
+                        <div class="input-field col s6 m6 right-align">
+                            <a id="enable" class="waves-effect waves-light btn red accent-4">Enable Edit</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- part 1 ends -->
+
+
+            <!-- part 2 start-->
+            <div class="z-depth-1 question_form">
+                <div class="row">
+                    <form class="col s12">
+                        <!-- fields -->
+                        <div class="input-field col s12 m12">
+                            <textarea id="question" class="materialize-textarea"></textarea>
+                            <label for="question">Question</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="opt1" type="text" class="validate">
+                            <label for="opt1">Option 1</label>
+                        </div>
+
+                        <div class="input-field col s12 m6">
+                            <input id="opt2" type="text" class="validate">
+                            <label for="opt2">Option 2</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="opt3" type="text" class="validate">
+                            <label for="opt3">Option 3</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="opt4" type="text" class="validate">
+                            <label for="opt4">Option 4</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="opt_correct" type="text" class="validate">
+                            <label for="opt_correct">Correct Option</label>
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <textarea id="explanation" class="materialize-textarea"></textarea>
+                            <label for="explanation">Explanation</label>
+                        </div>
+                        <!-- buttons -->
+
+                        <div class="input-field col s6 m6 left-align">
+                            <a id="add_question" class="waves-effect waves-light btn blue darken-4">Add Question</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- part 2 ends -->
+
+
+            <!-- part 3 start element-->
+            <div class="z-depth-1 question_show">
+                <div class="row">
+
+                    <div class="col s12">
+                        <h4>Question</h4>
+                    </div>
+                    
+                    <div class="col s12 m12">
+                        <h5>Correct Option</h5>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <h5>Option 1</h5>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <h5>Option 2</h5>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <h5>Option 3</h5>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <h5>Option 4</h5>
+                    </div>
+
+                    <div class="col s12 m12">
+                        <h5>Explanation</h5>
+                    </div>
+                    <!-- buttons -->
+                    <div class="input-field col s6 m6 left-align">
+                        <a id="add_question" class="waves-effect waves-light btn red accent-4">Remove Question</a>
+                    </div>
+                </div>
+            </div>
+            <!-- part 3 ends repeating element-->
+            
+
+        </div>
+    </main>
 
 
 
@@ -29,12 +163,6 @@
 
 
 
-
-
-
-
-
-    
     <!-- scripts -->
 
     <!-- Jquery -->
@@ -47,6 +175,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
+        $("#update").click(function () {
+            console.log('Clicked');
+            $("#update").addClass('disabled');
+        });
+
+        $("#enable").click(function () {
+            $("#update").removeClass('disabled');
+        });
     </script>
 </body>
 
