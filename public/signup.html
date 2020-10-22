@@ -1,11 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Platform</title>
+
+    <!-- My css -->
+    <link rel="stylesheet" href="css/signup.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
+
 <body>
-    <h1>Signup</h1>
+    <div class="row ">
+        <!-- left -->
+        <div class="col s12 m2">
+            <div class="logo_title">
+                <p>
+                    Platform
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <g class="fa-group">
+                            <path fill="currentColor"
+                                d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z">
+                            </path>
+                            <path fill="currentColor"
+                                d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z">
+                            </path>
+                        </g>
+                    </svg>
+                </p>
+            </div>
+        </div>
+        <!-- right -->
+        <div class="col s12 m10 form_col">
+
+                <ul id="tabs-swipe-demo" class="tabs ">
+                    <li class="tab col s6"><a class="active" href="#test-swipe-1">Student</a></li>
+                    <li class="tab col s6"><a href="#test-swipe-2">Teacher</a></li>
+                </ul>
+                <!-- Student -->
+                <div id="test-swipe-1" class="col s12 white z-depth-3 p-1">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="stu_name" type="text" class="validate">
+                            <label for="stu_name">Name</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="stu_email" type="email" class="validate">
+                            <label for="stu_email">Email</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="stu_password" type="password" class="validate" placeholder="Min length 6">
+                            <label for="stu_password">Password</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="stu_c_password" type="password" class="validate" placeholder="Min length 6">
+                            <label for="stu_c_password"> Confirm Password</label>
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <input id="stu_college" type="text" class="validate">
+                            <label for="stu_college"> College Name</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="stu_number" type="number" class="validate">
+                            <label for="stu_number"> Contact Number</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teacher -->
+                <div id="test-swipe-2" class="col s12 white z-depth-3 p-1">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="tea_name" type="text" class="validate">
+                            <label for="tea_name">Name</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="tea_email" type="email" class="validate">
+                            <label for="tea_email">Email</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="tea_password" type="password" class="validate" placeholder="Min length 6">
+                            <label for="tea_password">Password</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="tea_c_password" type="password" class="validate" placeholder="Min length 6">
+                            <label for="tea_c_password"> Confirm Password</label>
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <input id="tea_college" type="text" class="validate">
+                            <label for="tea_college"> College Name</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="tea_number" type="number" class="validate">
+                            <label for="tea_number"> Contact Number</label>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+    <!-- logo -->
+
+    <!-- main -->
+
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- my script -->
+    <script>
+        $(document).ready(function () {
+            $('.tabs').tabs();
+        });
+    </script>
 </body>
+
 </html>
