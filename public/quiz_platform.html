@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Portal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- My css -->
+    <link rel="stylesheet" href="css/quiz.css">
+
+</head>
+
+<body>
+
+
+
+    <div class="sidenav_custom">
+        <a>Time left
+            <br>
+            <span id="time">clock</span>
+        </a>
+        <a>Questions Done
+            <br>
+            <span id="q_d">0 / 30</span>
+        </a>
+        <a href="#">End Quiz</a>
+    </div>
+
+
+    <div class="main">
+        <!-- course div start -->
+        <div class="profile_form">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Question</h4>
+                </div>
+                <form>
+                    <p class="col s6 m6">
+                        <label>
+                            <input name="group1" value="Red" name="group1" type="radio" />
+                            <span>Red</span>
+                        </label>
+                    </p>
+                    <p class="col s6 m6">
+                        <label>
+                            <input name="group1" value="Yellow" name="group1" type="radio" />
+                            <span>Yellow</span>
+                        </label>
+                    </p>
+                    <p class="col s6 m6">
+                        <label>
+                            <input class="with-gap" value="Green" name="group1" type="radio" />
+                            <span>Green</span>
+                        </label>
+                    </p>
+                    <p class="col s6 m6">
+                        <label>
+                            <input class="with-gap" value="Blue" name="group1"type="radio" />
+                            <span>blue</span>
+                        </label>
+                    </p>
+                    <div class="input-field col s12 m12 right-align">
+                        <input type="button" onclick="myFunction()" class="waves-effect waves-light btn" value="Next">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- course div end -->
+    </div>
+
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn btn-modal modal-trigger" href="#modal1">Modal</a>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Time over</h4>
+            <p>Time alloted for quiz is over</p>
+        </div>
+        <div class="modal-footer">
+            <a href="./student_dash.html" class="modal-close waves-effect waves-green btn-flat">
+                Close Quiz
+            </a>
+        </div>
+    </div>
+
+    <!-- scripts -->
+
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- angularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- my javascript -->
+    <script src="./js/timmer.js"></script>
+</body>
+
+</html>

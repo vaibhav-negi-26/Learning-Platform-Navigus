@@ -1,0 +1,107 @@
+:root {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+
+    --bg-primary: #23232e;
+    --bg-secondary: #141414;
+
+    --transition-speed: 500ms;
+}
+
+body {
+    color: black;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23c6c1cf' fill-opacity='0.6' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+
+    margin: 0;
+    padding: 0;
+}
+
+/* .row {
+    margin-bottom: 0 !important;
+} */
+.sidenav_custom {
+  height: 100%;
+  width: 18rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-primary);
+  overflow-x: hidden;  
+}
+
+.sidenav_custom a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  display: block;
+}
+
+.sidenav_custom a:last-child {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.sidenav_custom a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 18rem; /* Same as the width of the sidenav_custom */
+  font-size: 1.5rem; /* Increased text to enable scrolling */
+  padding: 5rem;
+  /* width: 100%; */
+  /* border: 10px solid black; */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav_custom {padding-top: 15px;}
+  .sidenav_custom a {font-size: 18px;}
+}
+
+/* nav styles ends */
+
+/* dashboard styles */
+.profile_form{
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    box-shadow: 1px 1px 3px 4px rgba(204, 204, 204, 0.5);
+}
+
+.btn-modal {
+    display: none;
+}
+
+/* small screen */
+@media only screen and (max-width: 600px) {
+    .row .col {
+        padding: 0!important;
+    }
+    
+}
+
+/* large screen */
+@media only screen and (min-width: 600px) {
+    
+}
+
+
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #1a75ff;
+}
