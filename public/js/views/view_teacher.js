@@ -13,6 +13,10 @@ app.config(function ($routeProvider) {
         templateUrl: "template/temp_teacher/course.html",
         controller: "profileCtrl"
     })
+    .when("/addcourse", {
+        templateUrl: "template/temp_teacher/add_course.html",
+        controller: "profileCtrl"
+    })
     .when("/quiz", {
         templateUrl: "template/temp_teacher/quiz.html",
         controller: "profileCtrl"

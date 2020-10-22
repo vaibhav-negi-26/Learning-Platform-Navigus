@@ -14,7 +14,8 @@
 
 body {
     color: black;
-    background-color: while;
+    background-color: white;
+    /* background-color: #f8f8f8; */
 
     margin: 0;
     padding: 0;
@@ -127,7 +128,14 @@ main {
 .navbar:hover .logo svg {
     transform: rotate(-180deg);
 }
+/* nav styles ends */
 
+/* dashboard styles */
+.profile_form{
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
 /* small screen */
 @media only screen and (max-width: 600px) {
     .navbar {

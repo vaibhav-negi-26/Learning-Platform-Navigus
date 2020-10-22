@@ -27,6 +27,13 @@ body {
     font-size: 1.5rem;
 }
 
+
+.logo_title a{
+color: white;
+text-decoration: none;
+}
+
+
 .logo_title svg{
     max-width: 1rem;
     margin: 2rem 0 0 0;

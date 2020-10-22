@@ -2,6 +2,7 @@ const express = require('express')
 const router = new express.Router()
 const Course = require('../model/course')
 const Quiz = require('../model/quiz')
+const Question = require('../model/question')
 const auth = require('../middleware/auth')
 
 // Create endpoints 
@@ -89,6 +90,7 @@ router.patch('/course/:id', auth, async (req, res) => {
 // deleting course by id
 router.delete('/course/:id', auth, async (req, res) => {
     try {
+        // deleting course
         const course = await Course.findOneAndDelete({
             _id: req.params.id,
             teacher_id: req.user._id
@@ -99,15 +101,18 @@ router.delete('/course/:id', auth, async (req, res) => {
                 error: "No course found!"
             })
         }
-
+        // deleting quiz
         const quiz = await Quiz.findOneAndDelete({
             course_id: course.id,
             teacher_id: req.user._id
         })
 
+        // deleting questions
+        await Question.deleteMany({
+            quiz_id: quiz._id
+        })
         res.send({
-            course,
-            quiz
+            course
         })
     } catch (error) {
         res.status(500).send({error})
