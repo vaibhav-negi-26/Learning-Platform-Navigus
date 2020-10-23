@@ -2,6 +2,10 @@
 app.controller('Ctrl', function ($scope, $http, $log, $window) {
     console.log("This is developers panel not for noraml users. (Student)");
     const token = localStorage.getItem("token");
+    var preloader = $(".preloader")
+    setTimeout(function () {
+        preloader.fadeOut("slow")
+    }, 500)
 
     // logout Student
     $scope.signout_stu = () => {

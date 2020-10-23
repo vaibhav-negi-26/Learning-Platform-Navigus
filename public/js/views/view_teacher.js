@@ -11,15 +11,15 @@ app.config(function ($routeProvider) {
     })
     .when("/course", {
         templateUrl: "template/temp_teacher/course.html",
-        controller: "profileCtrl"
+        controller: "mycourseCtrl"
     })
     .when("/addcourse", {
         templateUrl: "template/temp_teacher/add_course.html",
-        controller: "profileCtrl"
+        controller: "addcourseCtrl"
     })
     .when("/quiz", {
         templateUrl: "template/temp_teacher/quiz.html",
-        controller: "profileCtrl"
+        controller: "myquizCtrl"
     })
     .otherwise({
         redirectTo: "/home"

@@ -138,6 +138,19 @@ main {
     background-color: white;
     box-shadow: 1px 1px 3px 4px rgba(204, 204, 204, 0.5);
 }
+
+/* preloader */
+.preloader{
+    height: 100vh;
+    width: 100%;
+    position: fixed !important;
+    z-index: 1000 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
 /* small screen */
 @media only screen and (max-width: 600px) {
     .navbar {

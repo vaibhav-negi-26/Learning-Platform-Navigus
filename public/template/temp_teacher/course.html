@@ -8,31 +8,32 @@
             <p>View, Update and delete your course details</p>
         </blockquote>
     </div>
-        <!-- course div start -->
-        <div class="profile_form">
-            <div class="row">
-                <form class="col s12">
-                    <div class="input-field col s12 m10">
-                        <input id="course_name" type="text" class="validate">
-                        <label for="course_name">Title</label>
-                    </div>
-                    <div class="input-field col s12 m2">
-                        <input id="course_credit" type="number" class="validate">
-                        <label for="course_credit">Credit</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <textarea id="description" class="materialize-textarea"></textarea>
-                        <label for="description">Description</label>
-                    </div>
-                    <div class="input-field col s12 m6 center-align">
-                        <a class="waves-effect waves-light btn orange accent-4 ">Update course</a>
-                    </div>
-                    <div class="input-field col s12 m6 center-align">
-                        <a class="waves-effect waves-light btn red accent-4">Delete course</a>
-                    </div>
-                </form>
-            </div>
+    <!-- course div start -->
+    <div class="profile_form" ng-repeat="course in courses">
+        <div class="row">
+            <form class="col s12">
+                <div class="input-field col s12 m10">
+                    <input id="course_name" type="text" value={{course.title}} class="validate">
+                    <label class="active" for="course_name">Title</label>
+                </div>
+                <div class="input-field col s12 m2">
+                    <input id="course_credit" type="text" value={{course.credit}} class="validate">
+                    <label class="active" for="course_credit">Credit</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="description" class="materialize-textarea">{{course.description}}</textarea>
+                    <label class="active" for="description">Description</label>
+                </div>
+                <div class="input-field col s12 m6 center-align">
+                    <a disabled class="waves-effect waves-light btn orange accent-4 ">Update course</a>
+                </div>
+                <div class="input-field col s12 m6 center-align">
+                    <a ng-click="del_course(course._id)" class="waves-effect waves-light btn red accent-4">Delete course</a>
+                </div>
+            </form>
         </div>
-        <!-- course div end -->
+    </div>
+    <!-- course div end -->
+
 </div>
 <!-- My course End -->

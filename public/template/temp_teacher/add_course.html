@@ -5,26 +5,29 @@
             Add course
         </h3>
         <blockquote>
-            <p>Add new courses</p>
+            <p>Add new courses.</p>
+        </blockquote>
+        <blockquote>
+            <p>Use Whole number for credits.</p>
         </blockquote>
     </div>
     <div class="profile_form">
         <div class="row">
             <form class="col s12">
                 <div class="input-field col s12 m10">
-                    <input id="course_name" type="text" class="validate">
+                    <input ng-model="course_title" id="course_name" type="text" class="validate">
                     <label for="course_name">Title</label>
                 </div>
                 <div class="input-field col s12 m2">
-                    <input id="course_credit" type="number" class="validate">
+                    <input ng-model="course_credit" id="course_credit" type="number" class="validate">
                     <label for="course_credit">Credit</label>
                 </div>
                 <div class="input-field col s12">
-                    <textarea id="description" class="materialize-textarea"></textarea>
+                    <textarea ng-model="course_description" id="description" class="materialize-textarea"></textarea>
                     <label for="description">Description</label>
                 </div>
                 <div class="input-field col s12 m12">
-                    <a class="waves-effect waves-light btn blue darken-4">Add course</a>
+                    <a ng-click="create_course()" class="waves-effect waves-light btn blue darken-4">Add course</a>
                 </div>
             </form>
         </div>

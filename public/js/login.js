@@ -24,6 +24,7 @@ app.controller("myLogin", function ($scope, $http, $log, $window) {
             const token = response.data.token
             localStorage.clear()
             localStorage.setItem("token", token)
+            localStorage.setItem("tea_name", tea_name)
             $window.location.href = '/teacher_dash.html';
             // console.log(response.status)
             // $log.info(response)
