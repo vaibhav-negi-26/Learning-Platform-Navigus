@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myLogin">
     <div class="row ">
         <!-- left -->
         <div class="col s12 m2">
@@ -40,93 +40,90 @@
         <!-- right -->
         <div class="col s12 m10 form_col">
 
-                <ul id="tabs-swipe-demo" class="tabs ">
-                    <li class="tab col s6"><a class="active" href="#test-swipe-1">Student</a></li>
-                    <li class="tab col s6"><a href="#test-swipe-2">Teacher</a></li>
-                </ul>
-                <!-- Student -->
-                <div id="test-swipe-1" class="col s12 white z-depth-3 p-2">
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input id="stu_name" type="text" class="validate">
-                            <label for="stu_name">Name</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="stu_email" type="email" class="validate">
-                            <label for="stu_email">Email</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="stu_password" type="password" class="validate" placeholder="Min length 6">
-                            <label for="stu_password">Password</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="stu_c_password" type="password" class="validate" placeholder="Min length 6">
-                            <label for="stu_c_password"> Confirm Password</label>
-                        </div>
-                        <div class="input-field col s12 m12">
-                            <input id="stu_college" type="text" class="validate">
-                            <label for="stu_college"> College Name</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="stu_number" type="number" class="validate">
-                            <label for="stu_number"> Contact Number</label>
-                        </div>
-                        <div class="input-field col s12 m12">
-                            <a class="waves-effect waves-light btn blue darken-4">Submit</a>
-                        </div>
+            <ul id="tabs-swipe-demo" class="tabs ">
+                <li class="tab col s6"><a class="active" href="#test-swipe-1">Student</a></li>
+                <li class="tab col s6"><a href="#test-swipe-2">Teacher</a></li>
+            </ul>
+            <!-- Student -->
+            <div id="test-swipe-1" class="col s12 white z-depth-3 p-2">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input ng-model="name_stu" required id="stu_name" type="text" class="validate">
+                        <label for="stu_name">Name</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="email_stu" required id="stu_email" type="email" class="validate">
+                        <label for="stu_email">Email</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="password_stu" required id="stu_password" type="password" class="validate" placeholder="Min length 6">
+                        <label for="stu_password">Password</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="c_password_stu" required id="stu_c_password" type="password" class="validate" placeholder="Min length 6">
+                        <label for="stu_c_password"> Confirm Password</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <input ng-model="college_stu" required id="stu_college" type="text" class="validate">
+                        <label for="stu_college"> College Name</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="contact_stu" required id="stu_number" type="number" class="validate">
+                        <label for="stu_number"> Contact Number</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <a ng-click="login_stu()" class="waves-effect waves-light btn blue darken-4">Submit</a>
                     </div>
                 </div>
-                <!-- Student End-->
+            </div>
+            <!-- Student End-->
 
-                <!-- Teacher -->
-                <div id="test-swipe-2" class="col s12 white z-depth-3 p-2">
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input id="tea_name" type="text" class="validate">
-                            <label for="tea_name">Name</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="tea_email" type="email" class="validate">
-                            <label for="tea_email">Email</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="tea_password" type="password" class="validate" placeholder="Min length 6">
-                            <label for="tea_password">Password</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="tea_c_password" type="password" class="validate" placeholder="Min length 6">
-                            <label for="tea_c_password"> Confirm Password</label>
-                        </div>
-                        <div class="input-field col s12 m12">
-                            <input id="tea_college" type="text" class="validate">
-                            <label for="tea_college"> College Name</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <input id="tea_number" type="number" class="validate">
-                            <label for="tea_number"> Contact Number</label>
-                        </div>
-                        <div class="input-field col s12 m12">
-                            <a class="waves-effect waves-light btn blue darken-4">Submit</a>
-                        </div>
+            <!-- Teacher -->
+            <div id="test-swipe-2" class="col s12 white z-depth-3 p-2">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input ng-model="name_tea" id="tea_name" type="text" class="validate">
+                        <label for="tea_name">Name</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="email_tea" id="tea_email" type="email" class="validate">
+                        <label for="tea_email">Email</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="password_tea" id="tea_password" type="password" class="validate" placeholder="Min length 6">
+                        <label for="tea_password">Password</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="c_password_tea" id="tea_c_password" type="password" class="validate" placeholder="Min length 6">
+                        <label for="tea_c_password"> Confirm Password</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <input ng-model="college_tea" id="tea_college" type="text" class="validate">
+                        <label for="tea_college"> College Name</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input ng-model="contact_tea" id="tea_number" type="number" class="validate">
+                        <label for="tea_number"> Contact Number</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <a ng-click="login_tea()" class="waves-effect waves-light btn blue darken-4">Submit</a>
                     </div>
                 </div>
+            </div>
             <!-- Teacher End-->
         </div>
     </div>
-
-    <!-- logo -->
-
-    <!-- main -->
 
 
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <!-- angularJS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <!-- my script -->
+    <script src="js/signup.js"></script>
     <script>
         $(document).ready(function () {
             $('.tabs').tabs();

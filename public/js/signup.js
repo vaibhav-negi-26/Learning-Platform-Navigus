@@ -4,23 +4,35 @@ var app = angular.module("myApp", []);
 app.controller("myLogin", function ($scope, $http, $log, $window) {
 
     // teacher login
+    $scope.name_tea
     $scope.email_tea
     $scope.password_tea
+    $scope.c_password_tea
+    $scope.college_tea
+    $scope.contact_tea
     $scope.login_tea = function () {
-        if ($scope.email_tea === undefined || $scope.password_tea === undefined) {
-            return alert("Teacher email or password is empty.")
+        console.log('hi');
+        if ($scope.name_tea === undefined ||$scope.email_tea === undefined ||$scope.password_tea === undefined ||$scope.c_password_tea === undefined || $scope.contact_tea === undefined) {
+            return alert("Any Field is empty")
+            // return console.log("Student email_tea or password_tea is empty.")
+        }
+        if ($scope.password_tea !== $scope.c_password_tea) {
+            return alert("Password and Confirm Password Didn't Match.")
         }
         // console.log($scope.email_tea + " : " + $scope.password_tea)
         const req = {
             method: 'POST',
-            url: '/teacher/login',
-            data: {
-                email: $scope.email_tea,
-                password: $scope.password_tea
+            url: '/teacher/create',
+            data:  {
+                name : $scope.name_tea,
+                email : $scope.email_tea,
+                contact : $scope.contact_tea,
+                password : $scope.password_tea,
+                college : $scope.college_tea
             }
         }
         const successCallback = (response) => {
-            const tea_name = response.data.name
+            const tea_name = response.data.teacher.name
             const token = response.data.token
             localStorage.clear()
             localStorage.setItem("token", token)
@@ -39,24 +51,38 @@ app.controller("myLogin", function ($scope, $http, $log, $window) {
     }
 
     // student login
+    $scope.name_stu
     $scope.email_stu
     $scope.password_stu
+    $scope.c_password_stu
+    $scope.college_stu
+    $scope.contact_stu
+
+
     $scope.login_stu = function () {
-        if ($scope.email_stu === undefined || $scope.password_stu === undefined) {
-            return alert("Student email or password is empty.")
+        if ($scope.name_stu === undefined ||$scope.email_stu === undefined ||$scope.password_stu === undefined ||$scope.c_password_stu === undefined || $scope.contact_stu === undefined) {
+            return alert("Any Field is empty")
             // return console.log("Student email_tea or password_tea is empty.")
         }
+        if ($scope.password_stu !== $scope.c_password_stu) {
+            return alert("Password and Confirm Password Didn't Match.")
+        }
+
         // console.log($scope.email_stu + " : " + $scope.password_stu)
         const req = {
             method: 'POST',
-            url: '/student/login',
+            url: '/student/create',
             data: {
-                email: $scope.email_stu,
-                password: $scope.password_stu
+                name : $scope.name_stu,
+                email : $scope.email_stu,
+                contact : $scope.contact_stu,
+                password : $scope.password_stu,
+                college : $scope.college_stu
             }
         }
         const successCallback = (response) => {
-            const stu_name = response.data.name
+            // console.log(response.data);
+            const stu_name = response.data.student.name
             const token = response.data.token
             localStorage.clear()
             localStorage.setItem("token", token)
@@ -66,8 +92,8 @@ app.controller("myLogin", function ($scope, $http, $log, $window) {
             // $log.info(response)
         }
         const errorCallback = (response) => {
-            alert("Wrong Email or Password")
-            console.log("Wrong Email or Password")
+            alert("Something went wrong")
+            console.log("Something went wrong")
             // console.log(response.status)
             // $log.info(response)
         }

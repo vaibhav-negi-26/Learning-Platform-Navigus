@@ -149,6 +149,9 @@ app.controller('mycourseCtrl', function ($scope, $http, $window) {
     $scope.courses
     const success = (response) => {
         $scope.courses = response.data
+        if(response.data.length === 0){
+            alert("You have not uploaded any course.")
+        }
         // console.log(response.data)
         // $log.info(response)
     }
@@ -242,6 +245,9 @@ app.controller('myquizCtrl', function ($scope, $http, $window) {
     $scope.quizs
     const success = (response) => {
         $scope.quizs = response.data
+        if(response.data.length === 0){
+            alert("You have not uploaded any quiz.")
+        }
         // console.log(response.data)
         // $log.info(response)
     }
